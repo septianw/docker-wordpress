@@ -1,0 +1,11 @@
+FROM septianw/apachephp
+
+COPY genconfig.sh /usr/bin/
+RUN apt-get update && apt-get install -y wget curl php5-mysqlnd php5-apcu php5-curl libapache2-mod-php5filter php5-gd php5-json php5-mcrypt php5-pspell php5-xmlrpc php5-xsl && rm -r /var/cache/apt /var/lib/apt/lists
+RUN a2enmod rewrite
+RUN wget https://wordpress.org/wordpress-wpversion.tar.gz
+RUN rm -rf /var/www/html && tar zxf wordpress-wpversion.tar.gz && mv wordpress /var/www/html && cd /var/www/ && genconfig.sh
+RUN rm -f wordpress-wpversion.tar.gz
+COPY config.php /var/www/html/wp-config.php
+
+VOLUME /var/www/html/wp-content
