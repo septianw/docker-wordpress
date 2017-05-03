@@ -1,2 +1,29 @@
-job1:
-  script: ./make.sh 4.7.4 1 DEV
+image: docker:latest
+
+services:
+  - docker:dind
+
+stages:
+  - build
+#  - test
+
+variables:
+  PHP56: maindfile-5.6
+  PHP55: maindfile-5.5
+  IMAGE_NAME: septianw/wordpress:${CI_BUILD_REF_NAME}_${CI_BUILD_REF}
+
+build:
+  stage: build
+  script:
+    - ln -s ${PHP55} maindfile
+    - ./make.sh 4.7.4 ${CI_BUILD_REF_NAME}_${CI_BUILD_REF} DEV
+
+build:
+  stage: build
+  script:
+    - ln -s ${PHP56} maindfile
+    - ./make.sh 4.7.4 ${CI_BUILD_REF_NAME}_${CI_BUILD_REF} DEV
+
+#test:
+#  script:
+#    - docker run -d --name aseptidb septianw/tidb
