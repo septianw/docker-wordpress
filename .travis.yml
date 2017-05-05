@@ -4,25 +4,15 @@ language:
 services:
   - docker
 
-matrix:
-  - env:
+env:
+  matrix:
+    - php=5.5
+    - php=5.6
+
+  matrix:
     - wordpress=4.7.4
-    - php=5.5
-  - env:
     - wordpress=4.2.1
-    - php=5.5
-  - env:
     - wordpress=3.9.2
-    - php=5.5
-  - env:
-    - wordpress=4.7.4
-    - php=5.6
-  - env:
-    - wordpress=4.2.1
-    - php=5.6
-  - env:
-    - wordpress=3.9.2
-    - php=5.6
 
 script:
   - echo $wordpress
