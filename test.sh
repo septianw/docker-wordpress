@@ -18,7 +18,7 @@ startMachine;
 
 Status=$(curl -I http://localhost:3280 2>/dev/null | head -n 1|cut -d$' ' -f2)
 
-if [ $Status -ne 500 ];then
+if [[ $Status -ne 500 ]];then
   quit;
   echo "Response status = "$Status;
   exit 0;

@@ -11,4 +11,4 @@ env:
 #    - wordpress=3.9.2
 
 script:
-  - ./test.sh $wordpress $TRAVIS_BUILD_NUMBER
+  - bash -x ./test.sh $wordpress $TRAVIS_BUILD_NUMBER
