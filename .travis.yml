@@ -1,0 +1,14 @@
+sudo: required
+language: python
+  
+services:
+  - docker
+
+env:
+  matrix:
+    - wordpress=4.7.4
+#    - wordpress=4.2.1
+#    - wordpress=3.9.2
+
+script:
+  - bash -x ./test.sh $wordpress $TRAVIS_BUILD_NUMBER
