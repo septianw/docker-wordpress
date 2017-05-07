@@ -1,23 +1,24 @@
 sudo: required
 language: python
-  
 services:
-  - docker
-
+- docker
+notifications:
+  hipchat:
+    rooms:
+      secure: loodhleYre25p2AyQIcv6oq3H/J+BHHZmeOZwk6UorErOezF+r9z+459wYEZoXZ0sMleM63DmGFXRQ0YRHkZDKaBp7Y+F3TTZnKdMR4P5qq0mC0JKCCoiAY+P/hEwICYIrlm5IWePRv6Oul9uLJJCx0uP9k74CXvxMF5nnflnEneVexrRbCTxYpew7Y1xNwmACgI1I2Uf2lfv9PzRyu3s32o6E5q8OOs8VYnxctFb1lebDEfRyXH7ctlrjVjvzXjQaWpKTn0j/V1m0mAF4sjsyM452or6v1f2Q7KsomuAqfjgU54u7vKL87HUeSwCiDkZY66J6NaeaX/U6fTz6ccXL3XrYZRrM6TYLODqKhCzNqgvm0ZQ2QgRD4aHsabuP5Y+g0/p+RBwfJpLvyodeBv2Lu/L1M7MIHQScN3YAHHQkEKUgbFbjtBlDbBg0ah/0iZ2E/nsu2q4Y79N97/pK+KI0rsLj1LTeiA2ZPx8sO5JBGRkIRlPAUClhOpwzqkNe9b4FjG1Z5LsoxTiKLpgI7wtYtPT4I2v6orv3WjM4aylE6xTY/ym1aCKl5zvHZU2+HVJM5h/AGju/NBdtXMeQh03aX65LwgxDclTXDSg4A3s3n5d2mDm2uY9h+6irkbQFtfni1H/9KRBL33ZoK8p7vM3AaqmkluBRNEgfVG4OmAWXg=
 env:
   matrix:
-    - wordpress=4.7.4
-    - wordpress=4.7.4
-    - wordpress=4.6.5
-    - wordpress=4.5.8
-    - wordpress=4.4.9
-    - wordpress=4.3.10
-    - wordpress=4.2.14
-    - wordpress=4.1.17
-    - wordpress=4.0.17
-    - wordpress=3.9.18
-    - wordpress=3.8.20
-    - wordpress=3.7.20
-
+  - wordpress=4.7.4
+  - wordpress=4.7.4
+  - wordpress=4.6.5
+  - wordpress=4.5.8
+  - wordpress=4.4.9
+  - wordpress=4.3.10
+  - wordpress=4.2.14
+  - wordpress=4.1.17
+  - wordpress=4.0.17
+  - wordpress=3.9.18
+  - wordpress=3.8.20
+  - wordpress=3.7.20
 script:
-  - bash -x ./test.sh $wordpress $TRAVIS_BUILD_NUMBER
+- bash -x ./test.sh $wordpress $TRAVIS_BUILD_NUMBER
