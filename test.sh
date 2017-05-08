@@ -17,8 +17,8 @@ startMachine() {
 ./make.sh $WORDPRESS_VERSION $BUILD_NUMBER TEST;
 startMachine;
 
-Status=$(curl -I http://localhost:3280 2>/dev/null | head -n 1 | cut -d' ' -f2)
-curl -I http://127.0.0.1:3280
+Status=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:3280)
+#curl -I http://127.0.0.1:3280
 
 if [[ $Status == '' ]]; then Status=0; fi
 
